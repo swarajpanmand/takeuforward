@@ -1,29 +1,24 @@
-#include<bits/stdc++.h>;
-#include<math.h>;
-#include<string.h>;
-#include<iostream>;
+#include<bits/stdc++.h>
 using namespace std;
 
 class Solution {
 public:
-    int reverse(int x) {
-        int result = 0;
-        int len = numberOfDigits(x);
-        String str = to_string(x);
-        if(str[0]=="-"){
-            for(int i=1; i<len; i++){
-                result= x%10 + result;
-                result= result*10;
-            }
-            result = result/10;
-            return -result;
+    bool isPalindrome(string s) {
+        string s1 = s;
+        for(string s11 :s){
+            if(s11>=65 && s11<=90 && s11>=97 && s11<=122) prinf(s11);
         }
     }
 };
 
 int main(){
-    int x;
-    Solution s;
-    cin>>x;
-    cout<<s.reverse(x);
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        Solution ob;
+        cout<<ob.isPalindrome(s)<<endl;
+    }
+    return 0;
 }
