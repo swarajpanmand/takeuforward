@@ -1,24 +1,27 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 class Solution {
 public:
-    bool isPalindrome(string s) {
-        string s1 = s;
-        for(string s11 :s){
-            if(s11>=65 && s11<=90 && s11>=97 && s11<=122) prinf(s11);
+    void mysieve(int prime[], int n) {
+        for (int i = 1; i <= n; i++) {
+            prime[i] = i;
+        }
+        for (int i = 2; i * i <= n; i++) {
+            if (prime[i] == i) {
+                for (int j = i * i; j <= n; j += i) {
+                    if (prime[j] == j) prime[j] = i;
+                }
+            }
         }
     }
-};
 
-int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        string s;
-        cin>>s;
-        Solution ob;
-        cout<<ob.isPalindrome(s)<<endl;
+    vector<int> findPrimeFactors(int n) {
+        int prime[n + 1];
+        vector<int> ans;
+        mysieve(prime, n);
+
+        while (n != 1) {
+            ans.push_back(prime[n]);
+            n = n / prime[n];
+        }
+        return ans;
     }
-    return 0;
-}
+};
